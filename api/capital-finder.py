@@ -11,18 +11,19 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
-        if "word" in dic:
-            url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
-            r = requests.get(url + dic["word"])
+        if "country" in dic:
+            url = "https://restcountries.com/v3.1/name/"
+            r = requests.get(url + dic["country"])
             data = r.json()
-            definitions = []
-            for word_data in data:
-                definition = word_data["meanings"][0]["definitions"][0]["definition"]
-                definitions.append(definition)
-            message = str(definitions)
+            # definitions = []
+            # for word_data in data:
+            #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
+            #     definitions.append(definition)
+            # message = str(definitions)
+            message = data
 
         else:
-            message = "Give me a word to define please"
+            message = "Give me a country to search please"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
