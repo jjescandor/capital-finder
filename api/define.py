@@ -25,7 +25,7 @@ class handler(BaseHTTPRequestHandler):
             url1 = "https://restcountries.com/v3.1/name/peru"
             r1 = requests.get(url1)
             data1 = r.json()
-            message = data[0]
+            message = data[0]["word"]
 
         else:
             message = "Give me a word to define please"
