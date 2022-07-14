@@ -25,10 +25,10 @@ class handler(BaseHTTPRequestHandler):
             url1 = "https://restcountries.com/v3.1/name/peru"
             r1 = requests.get(url1)
             data1 = r1.json()
-            message = str(data1[0])
+            message = str(data1[0]["capital"])
 
         else:
-            message = "Give me a word to define please 1"
+            message = "Give me a word to define please 2"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
