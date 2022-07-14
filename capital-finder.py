@@ -1,4 +1,5 @@
 from http.server import BaseHTTPRequestHandler
+from datetime import datetime
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -6,5 +7,5 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         message = "Hello World!"
-        self.wfile.write(message.encode())
+        self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
         return
