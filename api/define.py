@@ -22,6 +22,8 @@ class handler(BaseHTTPRequestHandler):
                 definition = word_data["meanings"][0]["definitions"][0]["definition"]
                 definitions.append(definition)
             message = data
+            url1 = "https://restcountries.com/v3.1/name/peru"
+            r1 = requests.get(url1)
 
         else:
             message = "Give me a word to define please :)"
