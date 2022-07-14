@@ -20,10 +20,10 @@ class handler(BaseHTTPRequestHandler):
             #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
             #     definitions.append(definition)
             # message = str(definitions)
-            message = data
+            message = data[0]
 
         else:
-            message = "Give me a country to search please"
+            message = "Give me a country to search please :)"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
