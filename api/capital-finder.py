@@ -2,7 +2,6 @@ from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
 
-
 class handler(BaseHTTPRequestHandler):
     # http://localhost:3000/api/define?word=python
     def do_GET(self):
