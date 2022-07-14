@@ -13,7 +13,8 @@ class handler(BaseHTTPRequestHandler):
 
         if "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
-            r = requests.get(url + dic["country"])
+            # r = requests.get(url + dic["country"])
+            r = requests.get(url)
             data = r.json()
             # definitions = []
             # for word_data in data:
@@ -21,9 +22,11 @@ class handler(BaseHTTPRequestHandler):
             #     definitions.append(definition)
             # message = str(definitions)
             message = data[0]
+            print("hi")
+            print(message)
 
         else:
-            message = "Give me a country to search please :)"
+            message = "Give me a country to search please"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
