@@ -6,24 +6,23 @@ import requests
 class handler(BaseHTTPRequestHandler):
     # http://localhost:3000/api/define?word=python
     def do_GET(self):
-        # s = self.path
-        # url_components = parse.urlsplit(s)
-        # query_string_list = parse.parse_qsl(url_components.query)
-        # dic = dict(query_string_list)
+        s = self.path
+        url_components = parse.urlsplit(s)
+        query_string_list = parse.parse_qsl(url_components.query)
+        dic = dict(query_string_list)
 
-        # if "country" in dic:
-        url = "https://restcountries.com/v3.1/name/peru"
-        # r = requests.get(url + dic["country"])
-        r = requests.get(url)
-        data = r.json()
-        capital = data
+        if "word" in dic:
+            url = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+            r = requests.get(url + dic["word"])
+            data = r.json()
+            definitions = []
+            for word_data in data:
+                definition = word_data["meanings"][0]["definitions"][0]["definition"]
+                definitions.append(definition)
+            message = str(definitions)
 
-        # for word_data in data:
-        #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
-        #     capital.append(definition)
-        message = f"The capital of Peru is {str(capital[5])}"
-        # else:
-        # message = "Give me a country to search please"
+        else:
+            message = "Give me a word to define please"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
