@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            message = f'The capital of {dic["country"]} is \n {str(data[0]["capital"][0])}'
+            message = f'The capital of {dic["country"]} is {str(data[0]["capital"][0])}'
         else:
             message = "Give me a country to search please! :)"
 
