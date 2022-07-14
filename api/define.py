@@ -17,7 +17,8 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            message = str(data[0]["capital"])
+            message = str(dic["country"])
+            message += f'\n {str(data[0]["{capital}"])}'
         else:
             message = "Give me a country to search please :)"
 
