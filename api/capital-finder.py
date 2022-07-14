@@ -20,10 +20,9 @@ class handler(BaseHTTPRequestHandler):
             # for word_data in data:
             #     definition = word_data["meanings"][0]["definitions"][0]["definition"]
             #     capital.append(definition)
-            message = str(capital[5])
-
+            message = f"The capital of {query_string_list} is {str(capital[5])}"
         else:
-            message = "Give me a word to define please"
+            message = "Give me a country to search please"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
