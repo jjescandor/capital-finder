@@ -12,17 +12,17 @@ class handler(BaseHTTPRequestHandler):
         url_components = parse.urlsplit(s)
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
-        country = str(dic["country"])
+
         if "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
-            r = requests.get(url + country)
+            r = requests.get(url + dic["country"])
             data = r.json()
-            message = f'The capital of {country} is \n {str(data[0]["capital"][0])}'
+            message = f'The capital of {dic["country"]} is \n {str(data[0]["capital"][0])}'
         else:
-            message = "Give me a country to search please :)"
+            message = "Give me a country to search please! :)"
 
         self.send_response(200)
-        self.send_header('Content-type','text/plain')
+        self.send_header('Content-type', 'text/plain')
         self.end_headers()
 
         self.wfile.write(message.encode())
