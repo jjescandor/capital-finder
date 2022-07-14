@@ -1,3 +1,5 @@
+
+
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
@@ -15,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            message = f'The capital of {dic["country"]} is {str(data[0]["capital"][0])}'
+            message = f'The capital of {dic["country"].upper()} is {str(data[0]["capital"][0].upper())}'
         else:
             message = "Give me a country to search please! :)"
 
