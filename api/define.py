@@ -18,13 +18,13 @@ class handler(BaseHTTPRequestHandler):
             r = requests.get(url + dic["country"])
             data = r.json()
             capital = []
-            for c_data in data[0]:
-                definition = c_data["capital"]
-                capital.append(definition)
+            # for c_data in data[0]:
+            #     definition = c_data["capital"]
+            #     capital.append(definition)
             # message = str(data1[0]["capital"])
-            message = str(capital[0])
+            message = str(data[0])
         else:
-            message = "Give me a country to search please 2"
+            message = "Give me a country to search please 1"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
