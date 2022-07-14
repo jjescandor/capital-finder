@@ -28,7 +28,7 @@ class handler(BaseHTTPRequestHandler):
             message = data[0]["word"]
 
         else:
-            message = "Give me a word to define please"
+            message = "Give me a word to define please :)"
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
