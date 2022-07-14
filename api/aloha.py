@@ -6,5 +6,6 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         message = "Hello World!"
+        print("hi")
         self.wfile.write(message.encode())
         return
