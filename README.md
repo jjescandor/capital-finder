@@ -8,15 +8,12 @@
 
 #### Description
 
-This is an app that displays menu items into the terminal.mThe user can input an order which the program displays back to the user in the terminal. When the user input quit, the user exits out of the program
+This is an app that allos the user to search for a capital and a country and spits out the corresponding country or capital respectively using a third party api.
 
 #### Methodology
 
-1. Create all_menu dictionary
-1. Create all_menu_list list
-1. Create display_menu function
-1. Create order_menu function
-1. create order_summary function
+1. Define serveless functions
+1. Implement the codebase as a serverless instance in vercel
 
 
 ### Tests
