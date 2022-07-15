@@ -17,12 +17,12 @@ class handler(BaseHTTPRequestHandler):
             url = "https://restcountries.com/v3.1/name/"
             r = requests.get(url + dic["country"])
             data = r.json()
-            message = f'The capital of {dic["country"].upper()} is {str(data[0]["capital"][0].upper())}'
+            message = f'The capital of {dic["country"].upper()} is {str(data[0]["capital"][0].upper())} city'
         elif "capital" in dic:
             url = "https://restcountries.com/v2/capital/"
             r = requests.get(url + dic["capital"])
             data = r.json()
-            message = f'The capital {dic["capital"].upper()} is in {str(data[0]["name"].upper())}'
+            message = f'The city of {dic["capital"].upper()} is in country {str(data[0]["name"].upper())}'
         else:
             message = "Give me a country or a city to search please! :)"
         self.send_response(200)
