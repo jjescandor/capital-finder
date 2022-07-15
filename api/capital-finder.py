@@ -20,7 +20,7 @@ class handler(BaseHTTPRequestHandler):
             message = f'The capital of {dic["country"].upper()} is {str(data[0]["capital"][0].upper())}'
         elif "capital" in dic:
             url = "https://restcountries.com/v2/capital/"
-            r = requests.get(url + dic["country"])
+            r = requests.get(url + dic["capital"])
             data = r.json()
             message = f'The capital {dic["capital"].upper()} is in {str(data[0]["name"].upper())}'
         else:
